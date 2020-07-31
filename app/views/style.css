@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(2, 0, 29);
+}
+
+.btns {
+  display: flex;
+}
+.cb {
+  display: none;
+}
+
+.btn {
+  height: 30px;
+  width: calc(100% / 3);
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn1 {
+  background-color: lightcoral;
+}
+.btn2 {
+  background-color: lightskyblue;
+}
+.btn3 {
+  background-color: lightgreen;
+}
+
+.blocks {
+  display: flex;
+  justify-content: space-around;
+}
+
+.block {
+  height: 60px;
+  width: calc(100% / 8);
+  background-color: rgb(49, 49, 49);
+  border-right: 1px solid #555;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+}
