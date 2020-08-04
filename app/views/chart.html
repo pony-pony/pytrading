@@ -5,11 +5,12 @@
     <title>fx trading</title>
     <style>
         * {
-          padding: 0;
-          margin: 0;
+            padding: 0;
+            margin: 0;
         }
         body {
-          background-color: rgb(2, 0, 29);
+            background: linear-gradient(#f42c84, #8c42fb);
+            height: 100vh;
         }
         #dashboard_div{
             width: 800px;
@@ -31,55 +32,128 @@
         }
 
         .btns {
-          display: flex;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
         }
         .cb {
-          display: none;
+            display: none;
         }
 
         .btn {
-          height: 30px;
-          width: calc(100% / 3);
-          border: none;
-          color: white;
-          font-size: 20px;
-          font-weight: bold;
-          text-transform: uppercase;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #8c42fb85;
+            height: 30px;
+            width: calc((100% / 3) - 20px);
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: 5px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            transition: 0.3s ease-in-out;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+            height: 45px;
+            border-radius: 30px;
         }
 
-        .btn1 {
-          background-color: lightcoral;
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.40);
+            cursor: pointer;
+            box-shadow: none;
+            transform: translate(2px, 2px);
         }
-        .btn2 {
-          background-color: lightskyblue;
+
+        .left-col {
+            margin-right: 30px;
         }
-        .btn3 {
-          background-color: lightgreen;
+
+        .right-col {
+            height: 100%;
+            width: 30%;
         }
 
         .blocks {
-          display: flex;
-          justify-content: space-around;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* .block {
+            height: 70px;
+            background: rgb(255, 211, 91);
+            display: flex;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Times New Roman', Times, serif;
+            text-transform: uppercase;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 15px;
+            border-radius: 7px;
+            transition: 0.3s ease-in-out;
+        } */
+
         .block {
-          height: 60px;
-          width: calc(100% / 8);
-          background-color: rgb(49, 49, 49);
-          border-right: 1px solid #555;
-          display: flex;
-          color: white;
-          font-weight: bold;
-          text-transform: uppercase;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid white;
+            display: flex;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Times New Roman', Times, serif;
+            text-transform: uppercase;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 15px;
+            border-radius: 7px;
+            transition: 0.3s ease-in-out;
+        }
+        .expand:hover {
+            cursor: pointer;
+        }
+
+        .block:hover {
+            transform: translateY(3px);
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.40);
+        }
+
+        #inputSmaPeriod1,
+        #inputSmaPeriod2,
+        #inputSmaPeriod3,
+        #inputEmaPeriod1,
+        #inputEmaPeriod2,
+        #inputEmaPeriod3,
+        #inputBBandsN,
+        #inputBBandsK,
+        #inputRsiPeriod,
+        #inputMacdPeriod1,
+        #inputMacdPeriod2,
+        #inputMacdPeriod3 {
+            text-align: center;
+            border: none;
+            border-bottom: 1px white solid;
+            color: white;
+            background-color: rgba(0, 0, 0, 0);
+            margin-right: 5px;
+        }
+
+        .period {
+            font-size: 12px;
         }
 
         .main {
-          margin: 50px;
-          display: flex;
-          justify-content: center;
+            height: 80vh;
+            margin: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 
@@ -827,99 +901,100 @@
     
 </head>
 <body>
-    <header>
-        <div class="btns">
-            <button class="btn btn1" onclick="changeDuration('5s');">5s</button>
-            <button class="btn btn2" onclick="changeDuration('1m');">1m</button>
-            <button class="btn btn3" onclick="changeDuration('1h');">1h</button>
-        </div>
-    </header>
-
-    <div class="blocks">
-        <div class="block block1">
-            <label>
-                <input id="inputSma" type="checkbox" class="cb">
-                SMA
-            </label>
-            <div>
-                Period<input id="inputSmaPeriod1" type="text" value="7" style="width: 15px;">
-                <input id="inputSmaPeriod2" type="text" value="14" style="width: 15px;">
-                <input id="inputSmaPeriod3" type="text" value="50" style="width: 15px;">
-            </div>
-        </div>
-        
-        <div class="block block2">
-            <label>
-                <input id="inputEma" type="checkbox" class="cb">
-                EMA
-            </label>
-            <div>
-                Period<input id="inputEmaPeriod1" type="text" value="7" style="width: 15px;">
-                <input id="inputEmaPeriod2" type="text" value="14" style="width: 15px;">
-                <input id="inputEmaPeriod3" type="text" value="50" style="width: 15px;">
-            </div>
-        </div>
-        
-        <div class="block block3">
-            <label>
-                <input id="inputBBands" type="checkbox" class="cb">
-                BBands 
-            </label>
-            <div>
-                N <input id="inputBBandsN" type="text" value="20" style="width: 15px;">
-                K <input id="inputBBandsK" type="text" value="2" style="width: 15px;">
-            </div>
-        </div>
-        
-        <div class="block block4">
-            <label>
-                <input id="inputIchimoku" type="checkbox" class="cb">
-                Ichimoku 
-            </label>
-        </div>
-        
-        <div class="block block5">
-            <label>
-                <input id="inputVolume" type="checkbox" class="cb">
-                Volume 
-            </label>
-            
-        </div>
-        
-        <div class="block block6">
-            <label>
-                <input id="inputRsi" type="checkbox" class="cb">
-                Rsi 
-            </label>
-            <div>
-                Period <input id="inputRsiPeriod" type="text" value="14" style="width: 15px;">
-            </div>
-        </div>
-        
-        <div class="block block7">
-            <label>
-                <input id="inputMacd" type="checkbox" class="cb">
-                MACD 
-            </label>
-            <div>
-              Period<input id="inputMacdPeriod1" type="text" value="12" style="width: 15px;">
-              <input id="inputMacdPeriod2" type="text" value="26" style="width: 15px;">
-              <input id="inputMacdPeriod3" type="text" value="9" style="width: 15px;">
-            </div>
-        </div>
-        
-        <div class="block block8">
-            <label>
-                <input id="inputEvents" type="checkbox" class="cb"> <div id="profit"></div>
-                Events 
-            </label>
-        </div>
-    </div>
     <div class="main">
-        <div id="dashboard_div">
-            <div id="chart_div"></div>
-            <div id="technical_div"></div>
-            <div id="filter_div"></div>
+        <div class="left-col">
+            <div class="btns">
+                <button class="btn btn1" onclick="changeDuration('5s');">5s</button>
+                <button class="btn btn2" onclick="changeDuration('1m');">1m</button>
+                <button class="btn btn3" onclick="changeDuration('1h');">1h</button>
+            </div>
+            <div id="dashboard_div">
+                <div id="chart_div"></div>
+                <div id="technical_div"></div>
+                <div id="filter_div"></div>
+            </div>
+        </div>
+        <div class="right-col">
+            <div class="blocks">
+                <div class="block block1">
+                    <label>
+                        <input id="inputSma" type="checkbox" class="cb">
+                        <p class="expand">SMA</p>
+                    </label>
+                    <div class="period">
+                        Period: <input id="inputSmaPeriod1" type="text" value="7" style="width: 15px;">
+                        <input id="inputSmaPeriod2" type="text" value="14" style="width: 15px;">
+                        <input id="inputSmaPeriod3" type="text" value="50" style="width: 15px;">
+                    </div>
+                </div>
+                
+                <div class="block block2">
+                    <label>
+                        <input id="inputEma" type="checkbox" class="cb">
+                        <p class="expand">EMA</p>
+                    </label>
+                    <div class="period">
+                        Period: <input id="inputEmaPeriod1" type="text" value="7" style="width: 15px;">
+                        <input id="inputEmaPeriod2" type="text" value="14" style="width: 15px;">
+                        <input id="inputEmaPeriod3" type="text" value="50" style="width: 15px;">
+                    </div>
+                </div>
+                
+                <div class="block block3">
+                    <label>
+                        <input id="inputBBands" type="checkbox" class="cb">
+                        <p class="expand">bbands</p>
+                    </label>
+                    <div class="period">
+                        N: <input id="inputBBandsN" type="text" value="20" style="width: 15px;">
+                        K: <input id="inputBBandsK" type="text" value="2" style="width: 15px;">
+                    </div>
+                </div>
+                
+                <div class="block block4">
+                    <label>
+                        <input id="inputIchimoku" type="checkbox" class="cb">
+                        <p class="expand">ichimoku</p>
+                    </label>
+                </div>
+                
+                <div class="block block5">
+                    <label>
+                        <input id="inputVolume" type="checkbox" class="cb">
+                        <p class="expand">volume</p>
+                    </label>
+                    
+                </div>
+                
+                <div class="block block6">
+                    <label>
+                        <input id="inputRsi" type="checkbox" class="cb">
+                        <p class="expand">rsi</p>
+                    </label>
+                    <div  class="period">
+                        Period: <input id="inputRsiPeriod" type="text" value="14" style="width: 15px;">
+                    </div>
+                </div>
+                
+                <div class="block block7">
+                    <label>
+                        <input id="inputMacd" type="checkbox" class="cb">
+                        <p class="expand">macd</p>
+                    </label>
+                    <div class="period">
+                        Period: <input id="inputMacdPeriod1" type="text" value="12" style="width: 15px;">
+                        <input id="inputMacdPeriod2" type="text" value="26" style="width: 15px;">
+                        <input id="inputMacdPeriod3" type="text" value="9" style="width: 15px;">
+                    </div>
+                </div>
+                
+                <div class="block block8">
+                    <label>
+                        <input id="inputEvents" type="checkbox" class="cb"> <div id="profit"></div>
+                        <p class="expand">events</p>
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
 </body>
