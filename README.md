@@ -26,6 +26,7 @@
 
 ## 使用したもの 🛠
 <img src="https://user-images.githubusercontent.com/64963869/89254929-54206a80-d65b-11ea-93ff-9562cfcec66f.JPG" width="100%">
+※ 現在はセキュリティ上の都合により heroku での公開を停止しています。
 
 ## 外観 🖥
 <img src="https://user-images.githubusercontent.com/64963869/89256141-67810500-d65e-11ea-8c55-aa9ba5b5866a.png" width="100%">
